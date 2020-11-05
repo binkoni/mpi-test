@@ -3,6 +3,7 @@
 
 #define SEND_SIZE 100
 #define RECV_SIZE 200
+#define SENDER 1
 
 int main(int argc, char *argv[]) {
     int rank, i, count;
@@ -10,7 +11,7 @@ int main(int argc, char *argv[]) {
     MPI_Status status;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    if (rank == 1) {
+    if (rank == SENDER) {
         for (i = 0; i < SEND_SIZE; ++i)
             data[i] = i;
         MPI_Send(data, SEND_SIZE, MPI_FLOAT, 0, 55, MPI_COMM_WORLD);
