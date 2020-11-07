@@ -21,4 +21,5 @@ int main(int argc, char *argv[]) {
             printf("P: %d msg[%d] = %d\n", rank, i, msg_recv[i]);
     }
     MPI_Finalize();
+    return 0;
 }
